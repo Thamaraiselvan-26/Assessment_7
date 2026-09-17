@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    parameters {
+        choice(name: 'Thamaraiselvan-26', choices: ['dev', 'staging', 'prod'], description: 'Select deployment environment for Online Exam System')
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: ''
+            }
+        }
+        stage('Show Parameter') {
+            steps {
+                echo "Target Exam Environment: ${params.ENVIRONMENT}"
+            }
+        }
+        stage('Simulate Build/Deploy') {
+            steps {
+                echo "Deploying Online Examination and Evaluation System to the ${params.ENVIRONMENT} environment..."
+            }
+        }
+    }
+}

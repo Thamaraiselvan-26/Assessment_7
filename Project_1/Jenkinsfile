@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        choice(name: 'Thamaraiselvan-26', choices: ['dev', 'staging', 'prod'], description: 'Select deployment environment for Online Exam System')
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'prod'], description: 'Select deployment environment for Online Exam System')
     }
     stages {
         stage('Checkout') {
